@@ -45,11 +45,10 @@ Now we can use the provided Kotlin functions. Here is an example of using NER wi
 ```Kotlin
 
 private fun predict(text: String): String {
-    private var vocab = mutableMapOf<String, Long>()
-    private lateinit var model: Module
+    var vocab = mutableMapOf<String, Long>()
+    var model: Module = load(assetFilePath(this, "traced_model.pt"))
 
     loadVocab(vocab, this)
-    model = load(assetFilePath(this, "script_model.pt"))
 
     var words = text.split(" ")
     println("65 ${words}")
