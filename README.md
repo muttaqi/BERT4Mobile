@@ -136,4 +136,3 @@ private fun predict(text: String): String {
   return out
 }
 ```
-
