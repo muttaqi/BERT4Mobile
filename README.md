@@ -20,7 +20,7 @@ See original [BERT-NER](https://github.com/kamalkraj/BERT-NER) repository for de
 
   model = Ner("path_to_model")
 
-  //example text needed for the trace function
+  #example text needed for the trace function
   text = "Steve went to Paris"
 
   traced_model = bert4mobile.trace_mobile(model, text)
