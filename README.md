@@ -27,6 +27,10 @@ See original [BERT-NER](https://github.com/kamalkraj/BERT-NER) repository for de
   traced_model.save('traced_model.pt')
 ```
 
+The tracer circumvents errors that would typically trigger for transformers:
+
+![BERT4Mobile Tracer Diagram](img/bert4mobile-diagram.png)
+
 # Loading and using model
 Import the BERT4NER package and PyTorch Mobile packages:
 ```Kotlin
