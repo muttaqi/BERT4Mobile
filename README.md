@@ -106,7 +106,11 @@ private fun predict(text: String): String {
     val segmentTensor: Tensor = Tensor.fromBlob(segments.toLongArray(), shape)
     val validTensor: Tensor = Tensor.fromBlob(valid.toLongArray(), shape)
 
-    var outputTensor: Tensor = model.forward(IValue.from(inputTensor), IValue.from(inputMaskTensor), IValue.from(segmentTensor), IValue.from(validTensor)).toTensor()
+    var outputTensor: Tensor = model.forward(IValue.from(inputTensor),
+                                             IValue.from(inputMaskTensor),
+                                             IValue.from(segmentTensor),
+                                             IValue.from(validTensor))
+                                             .toTensor()
 
     val scores: FloatArray = outputTensor.dataAsFloatArray
     println("70 ${Arrays.toString(scores)}")
@@ -114,7 +118,6 @@ private fun predict(text: String): String {
 
     val highestScores = maxInEachSegment(scores, initialSize)
 
-    //"label_map": {"1": "O", "2": "B-MISC", "3": "I-MISC", "4": "B-PER", "5": "I-PER", "6": "B-ORG", "7": "I-ORG", "8": "B-LOC", "9": "I-LOC", "10": "[CLS]", "11": "[SEP]"}
     var labelMap = mapOf(1 to "O",
     2 to "B-MISC",
     3 to "I-MISC",
